@@ -11,32 +11,32 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 keyboard = InlineKeyboardMarkup([
     [
-        InlineKeyboardButton("➕ Grubuna Ekle", url=f"http://t.me/MajesteKelimeBot?startgroup=new")
+        InlineKeyboardButton("➕ Gruba Ekle", url=f"http://t.me/inek_kelime_bot?startgroup=new")
     ],
     [
-        InlineKeyboardButton("🇹🇷 Sahibim", url="t.me/MajesteSahip"),
-        InlineKeyboardButton("💬 Chat", url="t.me/majesteler"),
+        InlineKeyboardButton("👤 Sahip", url="t.me/uslanmazmurti"),
+        InlineKeyboardButton("🐄 Grubumuz", url="t.me/inekobasiTR"),
     ]
 ])
 
 
 START = """
-**🔮 Merhaba, Majeste Kelime Bota hoş geldin bu bot ile Kelime türet oyunu veya kelime anlatmaca oynayabilirsin..**
+**⚔️ Merhaba, İnek Türet Bot'a Hoşgeldiniz Bot'u Gruba Ekleyerek Kelimeyi Türet Oyunu veya Kelime Anlatmaca Oynayabilirsiniz..**
 
-➤ Bilgi için 👉 /help Tıklayın. Komutlar kolay ve basittir. 
+➤ Yardım için 👉 /help Kullanın. Komutlar Gayet Kolaydır. 
 """
 
 HELP = """
-**✌️ Komutlar Menüsüne Hoşgeldiniz.**
+**📗 Komut Menüsüne Hoşgeldiniz.**
 /bulmaca - Kelime Anlatma Oyunu Başlatır.
-/ogretmen - Kelime Anlatma Oyununda Ogretmen Olma.. 
-/puan - Oyuncular arasındaki rekabet bilgisi..
+/ogretmen - Kelime Anlatma Oyununda Öğretmen Olma.. 
+/puan - Oyuncular Arasındaki Rekabet Bilgisi..
 
 
 /game - Kelime Türet oyunu başlatır.. 
-/pass - kelimeyi Pass geçer.
-/skor - Oyuncular arasındaki rekabet bilgisi..
-/cancel kelime türet oyununu bitirir.
+/pass - Kelimeyi Atlar/Pas Geçer.
+/skor - Oyuncular arasındaki Rekabet Bilgisi..
+/cancel Kelime Türet Oyununu Bitirir.
 """
 
 # Komutlar. 
@@ -60,9 +60,9 @@ async def kelimeoyun(c:Client, m:Message):
         aktif = False
 
     if aktif:
-        await m.reply("**❗ Oyun Zaten Grubunuzda Devam Ediyor ✍🏻 \n Oyunu durdurmak için yazıp /cancel durdurabilirsiniz")
+        await m.reply("**❗ Oyun Zaten Devam Ediyor 🔱 \n Oyunu Durdurmak İçin "/cancel" Kullanarak Durdurabilirsiniz")
     else:
-        await m.reply(f"**{m.from_user.mention}** Tarafından! \nKelime Bulma Oyunu Başladı .\n\nİyi Şanslar !", reply_markup=kanal)
+        await m.reply(f"**{m.from_user.mention}** Komutuyla! \nKelime Bulma Oyunu Başlatıldı.\n\nİyi Oyunlar Sahip: @uslanmazmurti!", reply_markup=kanal)
         
         oyun[m.chat.id] = {"kelime":kelime_sec()}
         oyun[m.chat.id]["aktif"] = True
@@ -80,7 +80,7 @@ async def kelimeoyun(c:Client, m:Message):
         text = f"""
 🎯 Raund : {oyun[m.chat.id]['round']}/60 
 📝 Söz :   <code>{kelime_list}</code>
-💰 Kazandığınız Puan: 1
+💰 Puanınız: 1
 🔎 İpucu: 1. {oyun[m.chat.id]["kelime"][0]}
 ✍🏻 Uzunluk : {int(len(kelime_list)/2)} 
 
