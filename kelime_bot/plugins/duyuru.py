@@ -17,20 +17,20 @@ async def duyuru(c:Client, m:Message):
         mesaj = m.reply_to_message.text
     else:
         mesaj = m.text[8:]
-    await c.send_message(m.chat.id,f"**Gönerilecek Grup Sayısı:  {len(chats_list)}\nMesajınız:**\n\n__{mesaj}__")
+    await c.send_message(m.chat.id,f"**Gönderilecek Grup Sayısı:  {len(chats_list)}\nMesajınız:**\n\n__{mesaj}__")
 
 
 
     #----> Gönderme İşlemi <----
-    bas =await c.send_message(m.chat.id, "**Duyuru Yapılmaya Başladı.**")
+    bas =await c.send_message(m.chat.id, "**Duyuru Başlatıldı.**")
     for chat in chats_list:
         try:
             await c.send_message(chat, mesaj, disable_web_page_preview=True)
-            await bas.edit(f"**Duyuru Yapılmaya Başladı.**\n\nGönderildi: {chat}")
+            await bas.edit(f"**Duyuru Başlatıldı.**\n\nGönderildi: {chat}")
         except:
             pass
         sleep(2)
-    await c.send_message(m.chat.id, "**Duyuru İşlemi Bitti Tüm Gruplara Duyurunuz Yollandı.**")
+    await c.send_message(m.chat.id, "**Duyuru İşlemi Bitti Tüm Gruplara Gönderildi.**")
     
     
     
@@ -48,16 +48,16 @@ async def fduyuru(c:Client, m:Message):
         mesaj = "t.me/" + str(m.chat.username) + "/" + str(message_id)
     else:
         return m.reply("**Mesajı yönlendirme şeklinde duyuru yapmak için yanıtlayın !!**")
-    await c.send_message(m.chat.id,f"**Gönerilecek Grup Sayısı:  {len(chats_list)}\nMesajınız: [Tıkla]({mesaj})**", disable_web_page_preview=True)
+    await c.send_message(m.chat.id,f"**Gönerilecek Grup Sayısı:  {len(chats_list)}\nMesajınız: [Tıklayınız]({mesaj})**", disable_web_page_preview=True)
 
 
     #----> Gönderme İşlemi <----
-    bas = await c.send_message(m.chat.id, "**Duyuru Yapılmaya Başladı.**")
+    bas = await c.send_message(m.chat.id, "**Duyuru Başlatıldı.**")
     for chat in chats_list:
         try:
             await c.forward_messages(chat,m.chat.id, message_id)
-            await bas.edit(f"**Duyuru Yapılmaya Başladı.**\n\nGönderildi: {chat}")
+            await bas.edit(f"**Duyuru Başlatıldı.**\n\nGönderildi: {chat}")
         except:
             pass
         sleep(2)
-    await c.send_message(m.chat.id, "**Duyuru İşlemi Bitti Tüm Gruplara Duyurunuz Yollandı.**")
+    await c.send_message(m.chat.id, "**Duyuru İşlemi Bitti Tüm Gruplara Gönderildi.**")
