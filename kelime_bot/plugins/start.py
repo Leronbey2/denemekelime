@@ -60,7 +60,7 @@ async def kelimeoyun(c:Client, m:Message):
         aktif = False
 
     if aktif:
-        await m.reply("**❗ Oyun Zaten Devam Ediyor \nOyunu Durdurmak İçin "/cancel" Kullanın")
+        await m.reply("**❗ Oyun Zaten Grubunuzda Devam Ediyor ✍🏻 \n Oyunu durdurmak için yazıp /cancel durdurabilirsiniz")
     else:
         await m.reply(f"**{m.from_user.mention}** Komutuyla! \nKelime Bulma Oyunu Başlatıldı.\n\nİyi Oyunlar Sahip: @uslanmazmurti!", reply_markup=kanal)
         
