@@ -11,17 +11,17 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 keyboard = InlineKeyboardMarkup([
     [
-        InlineKeyboardButton("➕ Gruba Ekle", url=f"http://t.me/inek_kelime_bot?startgroup=new")
+        InlineKeyboardButton("➕ Gruba Ekle", url=f"http://t.me/LuizKelimeevreni_bot?startgroup=new")
     ],
     [
-        InlineKeyboardButton("👤 Sahip", url="t.me/uslanmazmurti"),
-        InlineKeyboardButton("🐄 Grubumuz", url="t.me/inekobasiTR"),
+        InlineKeyboardButton("👤 Sahip", url="t.me/XLERON"),
+        InlineKeyboardButton("⚜ Grubumuz", url="t.me/SohbetMaxTR"),
     ]
 ])
 
 
 START = """
-**⚔️ Merhaba, İnek Türet Bot'a Hoşgeldiniz Bot'u Gruba Ekleyerek Kelimeyi Türet Oyunu veya Kelime Anlatmaca Oynayabilirsiniz..**
+**⚔️ Merhaba, Luiz Kelime Evreni'ne Hoşgeldiniz Bot'u Gruba Ekleyerek Kelimeyi Türet Oyunu veya Kelime Anlatmaca Oynayabilirsiniz..**
 
 ➤ Yardım için 👉 /help Kullanın. Komutlar Gayet Kolaydır. 
 """
@@ -62,7 +62,7 @@ async def kelimeoyun(c:Client, m:Message):
     if aktif:
         await m.reply("**❗ Oyun Zaten Grubunuzda Devam Ediyor ✍🏻 \n Oyunu durdurmak için yazıp /cancel durdurabilirsiniz")
     else:
-        await m.reply(f"**{m.from_user.mention}** Komutuyla! \nKelime Bulma Oyunu Başlatıldı.\n\nİyi Oyunlar Sahip: @uslanmazmurti!", reply_markup=kanal)
+        await m.reply(f"**{m.from_user.mention}** Komutuyla! \nKelime Bulma Oyunu Başlatıldı.\n\nİyi Oyunlar Sahip: @XLERON!", reply_markup=kanal)
         
         oyun[m.chat.id] = {"kelime":kelime_sec()}
         oyun[m.chat.id]["aktif"] = True
